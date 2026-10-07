@@ -31,6 +31,6 @@ public class Club
      */
     public int numberOfMembers()
     {
-        return 0;
+        return members.size();
     }
 }
