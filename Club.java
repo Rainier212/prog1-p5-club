@@ -55,4 +55,31 @@ public class Club
         }
         return membercount;
     }
+    
+    /**
+     * Remove from the club's collection all members who
+     * joined in the given month, and return them stored
+     * in a separate collection object
+     * @param month The month of the membership
+     * @param year The year of the membership.
+     * @return The members who joined in the given month and year.
+     */
+    public ArrayList<Membership> purge(int month, int year)
+    {
+        ArrayList<Membership> purge = new ArrayList<>();
+        
+        if(month < 1 || month > 12){
+            System.out.println("The month you have inputed is invalid.");
+            return purge;
+        }
+        for(Membership member : members){
+            if(member.getMonth() == month && member.getYear() == year){
+                purge.add(member);
+            }
+        }
+        for(Membership member : purge){
+            members.remove(member);
+        }
+        return purge;
+    }
 }
